@@ -1,17 +1,17 @@
 # Demo for Performance Problems on dom tree renderings
 
-You can see the Result here:
-Approach 1: Layered Custom Dom Elements
+You can see the Result here:  
+Approach 1: Layered Custom Dom Elements  
 https://dakmor.github.io/lit-element-fiber-demo/index-layered.html
 
-Approach 2: Layered Dom (more in light dom)
+Approach 2: Layered Dom (more in light dom)  
 https://dakmor.github.io/lit-element-fiber-demo/index-light-dom.html
 
-Approach 3: Flat Dom Tree
+Approach 3: Flat Dom Tree  
 https://dakmor.github.io/lit-element-fiber-demo/index-flat.html
 
 
-And this is how it should look
+And this is how it should look  
 https://claudiopro.github.io/react-fiber-vs-stack-demo/fiber.html
 
 ## Known "Problem"?

@@ -1,4 +1,4 @@
-import GrainLitElement, { html } from '../grain-lit-element/GrainLitElement.js';
+import GrainLitElement, { html } from './node_modules/grain-lit-element/GrainLitElement.js';
 
 export default class FiberDot extends GrainLitElement(HTMLElement) {
   static get properties() {

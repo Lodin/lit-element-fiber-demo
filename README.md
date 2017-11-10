@@ -1,15 +1,23 @@
 # Demo for Performance Problems on dom tree renderings
 
 You can see the Result here:
-https://dakmor.github.io/lit-element-fiber-demo/
+Approach 1: Layered Custom Dom Elements
+https://dakmor.github.io/lit-element-fiber-demo/index-layered.html
+
+Approach 2: Layered Dom (more in light dom)
+https://dakmor.github.io/lit-element-fiber-demo/index-light-dom.html
+
+Approach 3: Flat Dom Tree
+https://dakmor.github.io/lit-element-fiber-demo/index-flat.html
+
 
 And this is how it should look
 https://claudiopro.github.io/react-fiber-vs-stack-demo/fiber.html
 
 ## Known "Problem"?
-As each element is it's own little island it result in a LOT of individual render calls by lit-html.
-As you can't pierce shadow dom you can't have a global rendering.
-So maybe impossible without some shared resources or shared knowlege (render priorities?)
+Even with a flat dom structure handling so many levels of render instances of lit-html seems to be a performance problem.
+
+Maybe there needs to be some shared knowledge? render priorities?
 
 ## Local Setup
 

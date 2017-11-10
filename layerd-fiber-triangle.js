@@ -41,29 +41,10 @@ export default class FiberTriangle extends GrainLitElement(HTMLElement) {
         // Artificially long execution time.
       }
     }
-
-    let a = new FiberTriangle();
-    a.x = this.x;
-    a.y = this.y - (s / 2);
-    a.s = s;
-    a.seconds = this.seconds;
-
-    let b = new FiberTriangle();
-    b.x = this.x -s;
-    b.y = this.y + (s / 2);
-    b.s = s;
-    b.seconds = this.seconds;
-
-    let c = new FiberTriangle();
-    c.x = this.x + s;
-    c.y = this.y + (s / 2);
-    c.s = s;
-    c.seconds = this.seconds;
-
     return html`
-      ${a.render()}
-      ${b.render()}
-      ${c.render()}
+      <fiber-triangle x="${this.x}" y="${this.y - (s / 2)}" s="${s}" seconds="${this.seconds}"></fiber-triangle>
+      <fiber-triangle x="${this.x - s}" y="${this.y + (s / 2)}" s="${s}" seconds="${this.seconds}"></fiber-triangle>
+      <fiber-triangle x="${this.x + s}" y="${this.y + (s / 2)}" s="${s}" seconds="${this.seconds}"></fiber-triangle>
     `;
   }
 }

@@ -1,7 +1,6 @@
 import GrainLitElement, { html } from './node_modules/grain-lit-element/GrainLitElement.js';
 
 export default class FiberDot extends GrainLitElement(HTMLElement) {
-  static get useShadowDom() { return false; }
   static get properties() {
     return {
       size: {
@@ -37,14 +36,6 @@ export default class FiberDot extends GrainLitElement(HTMLElement) {
     this.style.top = `${this.y}px`;
     this.style.borderRadius = `${s / 2}px`;
     this.style.lineHeight = `${s}px`;
-
-    this.style.position = 'absolute';
-    this.style.font = 'normal 15px sans-serif';
-    this.style.textAlign = 'center';
-    this.style.cursor = 'pointer';
-    this.style.background = 'rgb(97, 218, 251)';
-
-    this.innerText = this.text;
   }
 
   enter() {
@@ -55,12 +46,20 @@ export default class FiberDot extends GrainLitElement(HTMLElement) {
     this.hover = false;
   }
 
-  // don't use lit-html
-  render() {}
-  _render(what, where) {
-    this.innerText = this.text;
+  render() {
+    return html`
+      <style>
+        :host {
+          position: absolute;
+          font: normal 15px sans-serif;
+          text-align: center;
+          cursor: pointer;
+          background: rgb(97, 218, 251);
+        }
+      </style>
+      <span>${this.hover ? html`*${this.text}*` : html`${this.text}`}</span>
+    `;
   }
-
 }
 
 customElements.define('fiber-dot', FiberDot);

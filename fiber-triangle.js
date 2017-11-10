@@ -1,31 +1,29 @@
-import { LitElement, html } from './node_modules/lit-html-element/lit-element.js';
+import GrainLitElement, { html } from '../grain-lit-element/GrainLitElement.js';
 
-var targetSize = 25;
+const targetSize = 25;
 
-export class FiberTriangle extends LitElement {
-
-    static get properties() {
-        return {
-            s: {
-                type: Number
-            },
-            x: {
-                type: Number
-            },
-            y: {
-                type: Number
-            },
-            seconds: {
-                type: Number
-            }
-        }
-    }
+export default class FiberTriangle extends GrainLitElement(HTMLElement) {
+  static get properties() {
+    return {
+      s: {
+        type: Number,
+      },
+      x: {
+        type: Number,
+      },
+      y: {
+        type: Number,
+      },
+      seconds: {
+        type: Number,
+      },
+    };
+  }
 
   render() {
-    let s = this.s;
+    let { s } = this;
     if (s <= targetSize) {
       return html`
-        <link rel="stylesheet" href="style.css">
         <fiber-dot
             x="${this.x - (targetSize / 2)}"
             y="${this.y - (targetSize / 2)}"
@@ -34,7 +32,7 @@ export class FiberTriangle extends LitElement {
         ></fiber-dot>
       `;
     }
-    s = s / 2;
+    s /= 2;
 
     const slowDown = true;
     if (slowDown) {
@@ -44,7 +42,6 @@ export class FiberTriangle extends LitElement {
       }
     }
     return html`
-      <link rel="stylesheet" href="style.css">
       <fiber-triangle x="${this.x}" y="${this.y - (s / 2)}" s="${s}" seconds="${this.seconds}"></fiber-triangle>
       <fiber-triangle x="${this.x - s}" y="${this.y + (s / 2)}" s="${s}" seconds="${this.seconds}"></fiber-triangle>
       <fiber-triangle x="${this.x + s}" y="${this.y + (s / 2)}" s="${s}" seconds="${this.seconds}"></fiber-triangle>
@@ -52,4 +49,4 @@ export class FiberTriangle extends LitElement {
   }
 }
 
-customElements.define('fiber-triangle', FiberTriangle.withProperties());
+customElements.define('fiber-triangle', FiberTriangle);

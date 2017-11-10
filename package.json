@@ -1,17 +1,14 @@
 {
-  "name": "test",
+  "name": "lit-element-fiber-demo",
   "version": "1.0.0",
   "description": "",
   "main": "demo.js",
   "scripts": {
-    "serve": "ws"
+    "start": "polymer serve --npm"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "local-web-server": "^2.2.4"
-  },
   "dependencies": {
-    "lit-html-element": "^0.6.10"
+    "grain-lit-element": "^0.0.6"
   }
 }
